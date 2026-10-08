@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى حبيبتي ورفيقة دربي ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #feada6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+            direction: rtl;
+            padding: 20px 15px;
+        }
+
+        /* شلال القلوب المتساقطة */
+        #heart-cascade {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .falling-heart {
+            position: absolute;
+            top: -10%;
+            user-select: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(115vh) rotate(360deg); opacity: 0.2; }
+        }
+
+        /* الكارت الرئيسي بتصميم زجاجي */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 35px;
+            padding: 40px 30px;
+            max-width: 580px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(214, 51, 108, 0.22);
+            position: relative;
+            z-index: 10;
+            animation: popIn 0.8s ease-out;
+            max-height: 88vh;
+            overflow-y: auto;
+        }
+
+        /* تخصيص شريط التمرير */
+        .card::-webkit-scrollbar { width: 8px; }
+        .card::-webkit-scrollbar-track { background: #fff0f6; border-radius: 10px; }
+        .card::-webkit-scrollbar-thumb { background: #ff85c0; border-radius: 10px; }
+
+        @keyframes popIn {
+            0% { transform: scale(0.85); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            color: #d6336c;
+            font-size: 26px;
+            margin-bottom: 22px;
+            font-weight: bold;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(214, 51, 108, 0.1);
+        }
+
+        p.letter {
+            color: #333;
+            font-size: 16.5px;
+            line-height: 2;
+            margin-bottom: 30px;
+            text-align: justify;
+            text-align-last: center;
+            white-space: pre-line;
+            background: rgba(255, 240, 246, 0.4);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+
+        /* حاوية الأزرار أفقياً */
+        .btn-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            min-height: 65px;
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .btn-yes, .btn-promise, .btn-music {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 75, 43, 0.4);
+            transition: transform 0.25s, box-shadow 0.25s;
+            z-index: 11;
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-yes:hover, .btn-promise:hover, .btn-music:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 30px rgba(255, 75, 43, 0.6);
+        }
+
+        .btn-no {
+            background: #f8f9fa;
+            color: #6c757d;
+            border: 2px solid #e9ecef;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s ease-in-out;
+            white-space: nowrap;
+            z-index: 999;
+        }
+
+        /* نافذة المفاجأة عند التسامح */
+        .popup {
+            display: none;
+            margin-top: 25px;
+            padding: 25px 20px;
+            background: #fff0f6;
+            border-radius: 24px;
+            border: 2px dashed #ff85c0;
+            animation: fadeIn 0.6s ease-out;
+            text-align: right;
+            box-shadow: inset 0 0 15px rgba(255, 182, 193, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .popup p {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.9;
+            white-space: pre-line;
+        }
+
+        /* قسم الوعد الأخير */
+        .promise-section {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px dashed #ff85c0;
+            text-align: center;
+        }
+
+        .promise-title {
+            color: #d6336c;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* الصفحة الثانية (الموقع الثاني) */
+        #secondPage {
+            display: none;
+        }
+
+        .music-btn-wrapper {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="heart-cascade"></div>
+
+    <!-- الصفحة الأولى (الموقع الأول) -->
+    <div class="card" id="firstPage">
+        <h1>إلى حبيبتي ورفيقة دربي ❤️</h1>
+        
+        <p class="letter">الدنيا كلها تصير سوده بعيني لما احس اني ضايقتك ..
+انا اسف يجوجو ادري اني زعلتك واني كسرت بخاطرك واني سويت شي مفروض ما اسويه واعرف خطاي ومقدر مشاعرك يروحي انتي ويادنيتي ، جوجو حبيبتي احنا بعد ٣ ايام بنكمل سنه و ٦ شهور او سنه و ٧ شهور متخيله ماباقي شي يعني يوم الاحد بنكمل ف اتمنى يجي يوم الاحد واحنا بخير ووانتي وقلبك بخير ما اتمنى بيوم يجي اشوفك تعبانه بسببي اكتب لك كلامي وعيوني تدمع يجوجو ، اكتب لك كلامي وعيوني وقلبي مليء بالحزن والندم اكتب لك كلامي وانا ندممماان وانا زعلاننن من نفسي والله يجوجو انا احبك ومتعلق فيييكك وماقد طلبت احد يسامحني غيرك وماقد جلست احاول اكسب رضى احد غيرك والله يجوجو اسففف واتمنى نفتح صفحة جديده وتقبلين اعتذاري ونكون احلى من قبل ؟</p>
+
+        <div class="btn-group" id="btnGroup">
+            <button class="btn-yes" onclick="forgiveMe()">سامحتك ❤️</button>
+            <button class="btn-no" id="noBtn" onmouseover="moveButton()" onclick="moveButton()" ontouchstart="moveButton()">ما سامحتك 😜</button>
+        </div>
+
+        <div class="popup" id="lovePopup">
+            <p>اهلا باللي سامحتنيييي اكيد سامحتيني ولا فضول ؟ ههههههههههههههههههه المهم دامك وصلتي لين هنا انا احبك واعشقك يجوجو ووعد ما تتكرر واوعدك مايتكرر اللي صار وصفحه جديده وبدايه جديده خلاص ؟ اكيددد ؟ طبعاا اكيددد خلاص بداية جديده حياه جديده يجوجو والله ابيك تتخطين عندك عرس وعندك خطوبه وعندك اشياء ابيك تروحين وانتي مبسوطه ، ولاتسنيني وريني كشختك بجيح ادري 🫣 ، المهم احبك واعشقك يادنيتي احبك واعشقك ياكل ما املك احبك واعشقك ياروحي وياقلبي احبك يا من سكنتي قلبي احبك يامن ملكتي روحي انتي يجوجو وحده انتي جمونتي ، انتتتي ليييي انا بسسس فاهمه؟ وبخصوص خوياتك مدري ليه يقولون لك كذا ، لكن معليك منهم بطمنك وبخليك عندي ونكسر عينهم يوم اتزوجك اوعدك ترا بتصيرين زوجتي ، ليه ؟ لاني صادق لو اني مو صادق ماقدمتك على نفسي وذا ان دل دل على اني احبك اكثر من نفسي ورضاك يهمني بشكل ماتتخيلينه ، وبرضو ان دل دل على اني تصدقت ودعيت وترجيت ربي بالدعاء ، وفوق ذا كله جلست وطلعت وسويت اشياء كثيره تدل على اني صادق واني احبك ومازلت احبك يجوجو ، لذلك انا احبك انا اعشقك ولا عليك من اللي يقول انا ما احبك ولا اتركيه، يمكن بس مشاعر لحظيه ؟ والله مدري بس تخيلي نويف يقولي اتركك ؟ بتحسين بشعور سيء ان شدخله صح ؟ ف انا اتمنى يجوجو لاتخلينهم يلعبون براسك لاني احبك ولاني وعدتك اتغير وبتغير واحبك يروحي احبكككك</p>
+            
+            <div class="promise-section">
+                <div class="promise-title">وعد مانترك بعض :</div>
+                <button class="btn-promise" onclick="goToSecondPage()">وعد 😔❤️</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- الصفحة الثانية (الموقع الثاني) -->
+    <div class="card" id="secondPage">
+        <h1>وعدي إلك يادنيتي ❤️✨</h1>
+        
+        <p class="letter">واوعدك وعد ياحبي الاول والاخير في حبي لك وفي وجودي لك وفي كل شي مني لك وعدتك في حبي وفي عشقي وفي كل شي لك احبك وكان الحب وعد واحبك وكان العشق وعد واحبك وكان الموت فيك وعد اهواك واحبك واعشقك واموت فيك واموت بك واتمناك ي امنياتي كلها ي نصيبي في الدنيا والاخره احبك ي دنيتي انتي وياكوني ويا كل شي لي ياجمل من على الارض كلها وعلى الكون كله ياحسن الجمال يافريدة الزين كله يصاحبة العيون الجميله وصاحبة القلب الطيب وطاهرة وصاحبة العمر المزيون وصاحبة الروح الجميله ي جمال الدنيا كلها خذيتي الزين باكمله كله وخذيتي الجمال في الاخلاق وطبع والاسلوب وكل مافي الدنيا كلها احبك ي وعدي واحبك ي نصيبي واحبك ي اجمل مافي الدنيا كلها اموت فيك واموت في وجهك وعيونك وروحك وكل شي فيك احبك ي زين الدنيا كلها وياصاحبة الحب الاول والاخير عجزت اوصفك ولو بكلامي احبك احبك احبكك احبك❤️❤️❤️❤️❤️❤️❤️</p>
+
+        <!-- زر الإهداء المباشر إلى اليوتيوب -->
+        <div class="music-btn-wrapper">
+            <a href="https://youtu.be/Ku8yTMYeYnA?si=-Zn1ehxtj407kqUX" target="_blank" class="btn-music">إهداء لك 🎵❤️</a>
+        </div>
+    </div>
+
+    <script>
+        // 1. شلال القلوب المتساقطة
+        function createHeartCascade() {
+            const container = document.getElementById('heart-cascade');
+            const heartIcons = ['❤️', '💖', '💕', '🌸', '✨', '💗'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('falling-heart');
+                heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                
+                container.appendChild(heart);
+
+                setTimeout(() => { heart.remove(); }, 5000);
+            }, 180);
+        }
+
+        // 2. حركة زر "ما سامحتك" الكوميدية
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const padding = 60;
+            const maxX = window.innerWidth - btn.offsetWidth - padding;
+            const maxY = window.innerHeight - btn.offsetHeight - padding;
+            
+            const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+            
+            btn.style.position = 'fixed';
+            btn.style.left = `${randomX}px`;
+            btn.style.top = `${randomY}px`;
+        }
+
+        // 3. عند الضغط على "سامحتك"
+        function forgiveMe() {
+            document.getElementById('btnGroup').style.display = 'none';
+            document.getElementById('noBtn').style.display = 'none';
+            document.getElementById('lovePopup').style.display = 'block';
+            
+            for(let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const container = document.getElementById('heart-cascade');
+                    const heart = document.createElement('div');
+                    heart.classList.add('falling-heart');
+                    heart.innerText = '❤️';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+                    heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                    container.appendChild(heart);
+                }, i * 30);
+            }
+        }
+
+        // 4. الانتقال للموقع الثاني عند الضغط على "وعد 😔❤️"
+        function goToSecondPage() {
+            document.getElementById('firstPage').style.display = 'none';
+            document.getElementById('secondPage').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onload = createHeartCascade;
+    </script>
+</body>
+</html>
